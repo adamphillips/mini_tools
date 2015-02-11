@@ -6,7 +6,10 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    metaclass (0.0.4)
     minitest (5.5.1)
+    mocha (1.1.0)
+      metaclass (~> 0.0.1)
 
 PLATFORMS
   ruby
@@ -14,3 +17,4 @@ PLATFORMS
 DEPENDENCIES
   mini_tools!
   minitest
+  mocha
