@@ -5,6 +5,8 @@ module MiniTools
   #
   # ```
   # class SimpleCommand
+  #   include MiniTools::Command
+  #
   #   def call value
   #     yield response :success, 'It worked' if value == true
   #     yield response :failure, 'It failed' if value == false
