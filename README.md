@@ -1,5 +1,7 @@
 # MiniTools
 
+[![Build Status](https://travis-ci.org/adamphillips/mini_tools.svg?branch=master)](https://travis-ci.org/adamphillips/mini_tools)
+
 These are some examples of simple patterns in Ruby. Whilst they are installable
 using RubyGems, the idea is that they are so simple that you probably just want
 to roll your own derivatives rather than add another gem dependency to your
