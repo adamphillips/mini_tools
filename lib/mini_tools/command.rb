@@ -22,7 +22,15 @@ module MiniTools
   # end
   module Command
     def response result, *args
-      Response.new(result, *args)
+      Response.new(self, result, *args)
+    end
+
+    def handled?
+      @handled
+    end
+
+    def handled= result
+      @handled = result
     end
   end
 end

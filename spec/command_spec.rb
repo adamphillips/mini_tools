@@ -9,7 +9,8 @@ describe MiniTools::Command do
     def call param
       yield response :success, 'OK' and return if param == 1
       yield response :error, 'Fail' and return if param == 0
-      yield response :unknown, 'Other' if ![0, 1].include?(param)
+      yield response :unknown, 'Other' and return if param == 2
+      yield response :unhandled, 'Unhandled'
     end
   end
 
@@ -37,6 +38,14 @@ describe MiniTools::Command do
         call_with 2
         assert_equal 'unknown', @state
         assert_equal 'Other', @message
+      end
+    end
+
+    describe 'when the response is not explicitly handled' do
+      it 'should be handled by the else response' do
+        call_with 'whatever'
+        assert_equal 'else', @state
+        assert_equal 'Unhandled', @message
       end
     end
 
@@ -90,6 +99,11 @@ describe MiniTools::Command do
 
       response.on(:unknown) do |m|
         @state = 'unknown'
+        @message = m
+      end
+
+      response.else do |m|
+        @state = 'else'
         @message = m
       end
     end
