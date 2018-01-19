@@ -19,6 +19,7 @@ module MiniTools
   # SimpleCommand.new.call some_value do |response|
   #   response.on(:success) ->(message) { puts 'Successful'; puts message }
   #   response.on(:failure) ->(message) { puts 'Unsuccessful'; puts message }
+  #   response.else ->(message) { puts 'Unknown response type'; puts message }
   # end
   module Command
     def response result, *args
